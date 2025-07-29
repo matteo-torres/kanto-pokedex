@@ -1,0 +1,146 @@
+---
+title: "Data Cleaning"
+author: "Matteo Torres"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+## Load Packages
+```{r, message=FALSE}
+#| code-fold: true
+library(here)
+library(janitor)
+library(tidyverse)
+```
+
+## Read Raw Data
+```{r, message=FALSE}
+measurements_raw <- read_csv(here("data", "raw", "pokemon.csv")) 
+egg_groups_raw <- read_csv(here("data", "raw", "egg_groups.csv"))
+egg_info_raw <- read_csv(here("data", "raw", "pokemon_egg_groups.csv"))
+growth_rate_raw <- read_csv(here("data", "raw", "growth_rate_prose.csv"))
+species_raw <-  read_csv(here("data", "raw", "pokemon_species_names.csv")) 
+training_breeding_raw <- read_csv(here("data", "raw", "pokemon_species.csv"))
+base_stats_raw <- read_csv(here("data", "raw", "Kanto Pokemon Spreadsheet.csv"))
+```
+
+## Clean Data
+```{r}
+measurements <- measurements_raw %>%
+  filter(id <= 151) %>% # filter pokemon from the Kanto region
+  select(-c(order, is_default, species_id)) %>% # drop unnecessary columns
+  rename(national_no = id,
+         pokemon = identifier,
+         base_exp = base_experience,
+         height_m = height,
+         weight_kg = weight) %>% # update column names
+  mutate(height_m = height_m/10, # convert height to meters
+         weight_kg = weight_kg/10, # convert weight to kilograms
+         national_no = sprintf("%04d", national_no), # update ID to national pokedex number
+         pokemon = str_to_title(pokemon), # capitalize pokemon names
+         pokemon = replace(pokemon, 29, paste0("Nidoran", "\u2640")), # add female gender symbol for Nidoran (ID 0029)
+         pokemon = replace(pokemon, 32, paste0("Nidoran", "\u2642")), # add male gender symbol for Nidoran (ID 0032)
+         pokemon = str_replace(pokemon, "-", ". ")) # fix prefix for Mr. Mime
+```
+
+```{r}
+egg_groups <- egg_groups_raw %>%
+  rename(egg_group_id = id,
+         egg_group = identifier) %>% # update column names
+  mutate(egg_group = str_to_title(egg_group), # capitalize egg group names
+         egg_group = str_replace_all(egg_group, "r([1-3])", "r \\1"), # add spaces between numeric suffixes
+         egg_group = str_replace(egg_group, "shape", "-Like"),
+         egg_group = str_replace(egg_group, "Indeterminate", "Amorphous"),
+         egg_group = str_replace(egg_group, "No-Eggs", "Undiscovered")) # update egg group names
+```
+
+```{r}
+egg_info <- egg_info_raw %>%
+  filter(species_id <= 151) %>% # filter pokemon from the Kanto region
+  rename(national_no = species_id) %>% # update column name
+  group_by(national_no) %>%
+  mutate(egg_group_index = paste0("egg_group_", row_number())) %>% # create column to sort egg groups
+  pivot_wider(names_from = egg_group_index, values_from = egg_group_id) %>% # pivot wider for a primary key
+  mutate(national_no = sprintf("%04d", national_no)) # update ID to national pokedex number
+```
+
+```{r}
+growth_rate <- growth_rate_raw %>%
+  filter(local_language_id == 9) %>% # filter to the English language
+  select(-local_language_id) %>% # drop column
+  rename(growth_rate = name) %>% # update column name
+  mutate(growth_rate = str_to_title(growth_rate)) # capitalize growth rate options
+```
+
+```{r}
+species <- species_raw %>%
+  filter(local_language_id == 9, # filter to the English language
+         pokemon_species_id <= 151) %>% # filter pokemon from the Kanto region
+  select(- local_language_id) %>% # drop column
+  rename(national_no = pokemon_species_id,
+         pokemon = name,
+         species = genus) %>% # update column names
+  mutate(national_no = sprintf("%04d", national_no)) # update ID to national pokedex number
+```
+
+```{r}
+training_breeding_stats <- training_breeding_raw %>%
+  filter(id <= 151) %>% # filter pokemon from the Kanto region
+  select(id, identifier, capture_rate, base_happiness, growth_rate_id, gender_rate, hatch_counter) %>% # select necessary columns
+  rename(national_no = id,
+         pokemon = identifier,
+         catch_rate = capture_rate,
+         base_friendship = base_happiness,
+         gender_f = gender_rate,
+         egg_cycles = hatch_counter) %>%  # update column names
+  mutate(national_no = sprintf("%04d", national_no), # update ID to national pokedex number
+         pokemon = str_to_title(pokemon), # capitalize pokemon names
+         pokemon = replace(pokemon, 29, paste0("Nidoran", "\u2640")), # add female gender symbol for Nidoran (ID 0029)
+         pokemon = replace(pokemon, 32, paste0("Nidoran", "\u2642")), # add male gender symbol for Nidoran (ID 0032)
+         pokemon = str_replace(pokemon, "-", ". "), # fix prefix for Mr. Mime
+         gender_f = ifelse(gender_f == -1, NA, gender_f/8*100), # convert female gender ratio to percent
+         cycle_steps = egg_cycles*257) # convert egg cycles to hatch steps (1 cycle = 257 steps)
+```
+
+```{r}
+base_stats <- base_stats_raw %>%
+  clean_names() %>% # convert column names to lowercase
+  select(-c(move_1, move_2, move_3, move_4)) %>% # drop unnecessary columns
+  add_row(nat = 32, 
+          pokemon = "Nidoran", 
+          type_i = "Poison", 
+          type_ii = NA, 
+          hp = 46, 
+          atk = 57, 
+          def = 40, 
+          sp_a = 40, 
+          sp_d = 40,
+          spe = 50,
+          .before = 32) %>% # add missing pokedex entry
+  rename(national_no = nat,
+         type_1 = type_i,
+         type_2 = type_ii,
+         attack = atk,
+         defense = def,
+         sp_atk = sp_a,
+         sp_def = sp_d,
+         speed = spe) %>% # update column names
+  mutate(national_no = sprintf("%04d", national_no), # update ID to national pokedex number
+         total = rowSums(across(c(hp, attack, defense, sp_atk, sp_def, speed))), # add column with total base stats
+         pokemon = replace(pokemon, 29, paste0(pokemon[29], "\u2640")), # add female gender symbol for Nidoran (ID 0029)
+         pokemon = replace(pokemon, 32, paste0(pokemon[32], "\u2642"))) # add male gender symbol for Nidoran (ID 0032)
+```
+
+## Save Clean Data
+```{r}
+# save clean data as CSVs to the "processed" data folder
+write_csv(species, "data/processed/species.csv")
+write_csv(egg_info, "data/processed/egg_info.csv")
+write_csv(base_stats, "data/processed/base_stats.csv")
+write_csv(egg_groups, "data/processed/egg_groups.csv")
+write_csv(growth_rate, "data/processed/growth_rate.csv")
+write_csv(measurements, "data/processed/measurements.csv")
+write_csv(training_breeding_stats, "data/processed/training_breeding_stats.csv")
+```
+

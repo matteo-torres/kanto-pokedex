@@ -1,0 +1,7 @@
+growth_rate_id,growth_rate
+1,Slow
+2,Medium
+3,Fast
+4,Medium Slow
+5,Slow Then Very Fast
+6,Fast Then Very Slow

@@ -1,0 +1,152 @@
+national_no,pokemon,species
+0001,Bulbasaur,Seed Pokémon
+0002,Ivysaur,Seed Pokémon
+0003,Venusaur,Seed Pokémon
+0004,Charmander,Lizard Pokémon
+0005,Charmeleon,Flame Pokémon
+0006,Charizard,Flame Pokémon
+0007,Squirtle,Tiny Turtle Pokémon
+0008,Wartortle,Turtle Pokémon
+0009,Blastoise,Shellfish Pokémon
+0010,Caterpie,Worm Pokémon
+0011,Metapod,Cocoon Pokémon
+0012,Butterfree,Butterfly Pokémon
+0013,Weedle,Hairy Bug Pokémon
+0014,Kakuna,Cocoon Pokémon
+0015,Beedrill,Poison Bee Pokémon
+0016,Pidgey,Tiny Bird Pokémon
+0017,Pidgeotto,Bird Pokémon
+0018,Pidgeot,Bird Pokémon
+0019,Rattata,Mouse Pokémon
+0020,Raticate,Mouse Pokémon
+0021,Spearow,Tiny Bird Pokémon
+0022,Fearow,Beak Pokémon
+0023,Ekans,Snake Pokémon
+0024,Arbok,Cobra Pokémon
+0025,Pikachu,Mouse Pokémon
+0026,Raichu,Mouse Pokémon
+0027,Sandshrew,Mouse Pokémon
+0028,Sandslash,Mouse Pokémon
+0029,Nidoran♀,Poison Pin Pokémon
+0030,Nidorina,Poison Pin Pokémon
+0031,Nidoqueen,Drill Pokémon
+0032,Nidoran♂,Poison Pin Pokémon
+0033,Nidorino,Poison Pin Pokémon
+0034,Nidoking,Drill Pokémon
+0035,Clefairy,Fairy Pokémon
+0036,Clefable,Fairy Pokémon
+0037,Vulpix,Fox Pokémon
+0038,Ninetales,Fox Pokémon
+0039,Jigglypuff,Balloon Pokémon
+0040,Wigglytuff,Balloon Pokémon
+0041,Zubat,Bat Pokémon
+0042,Golbat,Bat Pokémon
+0043,Oddish,Weed Pokémon
+0044,Gloom,Weed Pokémon
+0045,Vileplume,Flower Pokémon
+0046,Paras,Mushroom Pokémon
+0047,Parasect,Mushroom Pokémon
+0048,Venonat,Insect Pokémon
+0049,Venomoth,Poison Moth Pokémon
+0050,Diglett,Mole Pokémon
+0051,Dugtrio,Mole Pokémon
+0052,Meowth,Scratch Cat Pokémon
+0053,Persian,Classy Cat Pokémon
+0054,Psyduck,Duck Pokémon
+0055,Golduck,Duck Pokémon
+0056,Mankey,Pig Monkey Pokémon
+0057,Primeape,Pig Monkey Pokémon
+0058,Growlithe,Puppy Pokémon
+0059,Arcanine,Legendary Pokémon
+0060,Poliwag,Tadpole Pokémon
+0061,Poliwhirl,Tadpole Pokémon
+0062,Poliwrath,Tadpole Pokémon
+0063,Abra,Psi Pokémon
+0064,Kadabra,Psi Pokémon
+0065,Alakazam,Psi Pokémon
+0066,Machop,Superpower Pokémon
+0067,Machoke,Superpower Pokémon
+0068,Machamp,Superpower Pokémon
+0069,Bellsprout,Flower Pokémon
+0070,Weepinbell,Flycatcher Pokémon
+0071,Victreebel,Flycatcher Pokémon
+0072,Tentacool,Jellyfish Pokémon
+0073,Tentacruel,Jellyfish Pokémon
+0074,Geodude,Rock Pokémon
+0075,Graveler,Rock Pokémon
+0076,Golem,Megaton Pokémon
+0077,Ponyta,Fire Horse Pokémon
+0078,Rapidash,Fire Horse Pokémon
+0079,Slowpoke,Dopey Pokémon
+0080,Slowbro,Hermit Crab Pokémon
+0081,Magnemite,Magnet Pokémon
+0082,Magneton,Magnet Pokémon
+0083,Farfetch’d,Wild Duck Pokémon
+0084,Doduo,Twin Bird Pokémon
+0085,Dodrio,Triple Bird Pokémon
+0086,Seel,Sea Lion Pokémon
+0087,Dewgong,Sea Lion Pokémon
+0088,Grimer,Sludge Pokémon
+0089,Muk,Sludge Pokémon
+0090,Shellder,Bivalve Pokémon
+0091,Cloyster,Bivalve Pokémon
+0092,Gastly,Gas Pokémon
+0093,Haunter,Gas Pokémon
+0094,Gengar,Shadow Pokémon
+0095,Onix,Rock Snake Pokémon
+0096,Drowzee,Hypnosis Pokémon
+0097,Hypno,Hypnosis Pokémon
+0098,Krabby,River Crab Pokémon
+0099,Kingler,Pincer Pokémon
+0100,Voltorb,Ball Pokémon
+0101,Electrode,Ball Pokémon
+0102,Exeggcute,Egg Pokémon
+0103,Exeggutor,Coconut Pokémon
+0104,Cubone,Lonely Pokémon
+0105,Marowak,Bone Keeper Pokémon
+0106,Hitmonlee,Kicking Pokémon
+0107,Hitmonchan,Punching Pokémon
+0108,Lickitung,Licking Pokémon
+0109,Koffing,Poison Gas Pokémon
+0110,Weezing,Poison Gas Pokémon
+0111,Rhyhorn,Spikes Pokémon
+0112,Rhydon,Drill Pokémon
+0113,Chansey,Egg Pokémon
+0114,Tangela,Vine Pokémon
+0115,Kangaskhan,Parent Pokémon
+0116,Horsea,Dragon Pokémon
+0117,Seadra,Dragon Pokémon
+0118,Goldeen,Goldfish Pokémon
+0119,Seaking,Goldfish Pokémon
+0120,Staryu,Star Shape Pokémon
+0121,Starmie,Mysterious Pokémon
+0122,Mr. Mime,Barrier Pokémon
+0123,Scyther,Mantis Pokémon
+0124,Jynx,Human Shape Pokémon
+0125,Electabuzz,Electric Pokémon
+0126,Magmar,Spitfire Pokémon
+0127,Pinsir,Stag Beetle Pokémon
+0128,Tauros,Wild Bull Pokémon
+0129,Magikarp,Fish Pokémon
+0130,Gyarados,Atrocious Pokémon
+0131,Lapras,Transport Pokémon
+0132,Ditto,Transform Pokémon
+0133,Eevee,Evolution Pokémon
+0134,Vaporeon,Bubble Jet Pokémon
+0135,Jolteon,Lightning Pokémon
+0136,Flareon,Flame Pokémon
+0137,Porygon,Virtual Pokémon
+0138,Omanyte,Spiral Pokémon
+0139,Omastar,Spiral Pokémon
+0140,Kabuto,Shellfish Pokémon
+0141,Kabutops,Shellfish Pokémon
+0142,Aerodactyl,Fossil Pokémon
+0143,Snorlax,Sleeping Pokémon
+0144,Articuno,Freeze Pokémon
+0145,Zapdos,Electric Pokémon
+0146,Moltres,Flame Pokémon
+0147,Dratini,Dragon Pokémon
+0148,Dragonair,Dragon Pokémon
+0149,Dragonite,Dragon Pokémon
+0150,Mewtwo,Genetic Pokémon
+0151,Mew,New Species Pokémon
