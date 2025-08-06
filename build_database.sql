@@ -1,5 +1,14 @@
 -- Build Kanto Pokedex Database
 
+-- Drop existing tables for reproducibility
+DROP TABLE IF EXISTS training_breeding_stats;
+DROP TABLE IF EXISTS species;
+DROP TABLE IF EXISTS measurements;
+DROP TABLE IF EXISTS egg_info;
+DROP TABLE IF EXISTS egg_groups;
+DROP TABLE IF EXISTS growth_rate;
+DROP TABLE IF EXISTS base_stats;
+
 -- Create base_stats Table
 CREATE TABLE base_stats(
     national_no VARCHAR PRIMARY KEY,
@@ -30,8 +39,9 @@ COPY egg_groups FROM 'data/processed/egg_groups.csv' (HEADER TRUE, nullstr 'NA')
 -- Create egg_info Table
 CREATE TABLE egg_info(
     national_no VARCHAR PRIMARY KEY,
-    egg_group_1 INTEGER,
-    egg_group_2 INTEGER
+    egg_group_1 INTEGER REFERENCES egg_groups(egg_group_id),
+    egg_group_2 INTEGER REFERENCES egg_groups(egg_group_id),
+    FOREIGN KEY (national_no) REFERENCES base_stats(national_no)
 );
 
 -- Import processed egg_info CSV into egg_info Table
@@ -52,7 +62,8 @@ CREATE TABLE measurements(
     pokemon VARCHAR,
     height_m FLOAT,
     weight_kg FLOAT,
-    base_exp INTEGER
+    base_exp INTEGER,
+    FOREIGN KEY (national_no) REFERENCES base_stats(national_no)
 );
 
 -- Import processed measurements CSV into measurements Table
@@ -62,7 +73,8 @@ COPY measurements FROM 'data/processed/measurements.csv' (HEADER TRUE, nullstr '
 CREATE TABLE species(
     national_no VARCHAR PRIMARY KEY,
     pokemon VARCHAR,
-    species VARCHAR
+    species VARCHAR,
+    FOREIGN KEY (national_no) REFERENCES base_stats(national_no)
 );
 
 -- Import processed species CSV into species Table
@@ -74,10 +86,11 @@ CREATE TABLE training_breeding_stats(
     pokemon  VARCHAR,
     catch_rate INTEGER,
     base_friendship INTEGER,
-    growth_rate_id INTEGER,
+    growth_rate_id INTEGER REFERENCES growth_rate(growth_rate_id),
     gender_f FLOAT,
     egg_cycles INTEGER,
-    cycle_steps INTEGER
+    cycle_steps INTEGER,
+    FOREIGN KEY (national_no) REFERENCES base_stats(national_no)
 );
 
 -- Import processed training_breeding_stats CSV into training_breeding_stats Table
