@@ -94,8 +94,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#connect-to-database" id="toc-connect-to-database" class="nav-link" data-scroll-target="#connect-to-database">Connect to Database</a></li>
   <li><a href="#query-database" id="toc-query-database" class="nav-link" data-scroll-target="#query-database">Query Database</a>
   <ul class="collapse">
-  <li><a href="#q1.-how-are-the-kanto-region-pokémon-divided-among-growth-rates-and-which-pokémon-have-the-fastest-growth-rate" id="toc-q1.-how-are-the-kanto-region-pokémon-divided-among-growth-rates-and-which-pokémon-have-the-fastest-growth-rate" class="nav-link" data-scroll-target="#q1.-how-are-the-kanto-region-pokémon-divided-among-growth-rates-and-which-pokémon-have-the-fastest-growth-rate">Q1. How are the Kanto region Pokémon divided among growth rates, and which Pokémon have the fastest growth rate?</a></li>
-  <li><a href="#q2." id="toc-q2." class="nav-link" data-scroll-target="#q2.">Q2.</a></li>
+  <li><a href="#q1.-how-are-kanto-region-pokémon-divided-among-growth-rates-and-which-pokémon-have-the-fastest-growth-rate" id="toc-q1.-how-are-kanto-region-pokémon-divided-among-growth-rates-and-which-pokémon-have-the-fastest-growth-rate" class="nav-link" data-scroll-target="#q1.-how-are-kanto-region-pokémon-divided-among-growth-rates-and-which-pokémon-have-the-fastest-growth-rate">Q1. How are Kanto region Pokémon divided among growth rates, and which Pokémon have the fastest growth rate?</a></li>
+  <li><a href="#q2.-how-are-kanto-region-pokémon-divided-among-egg-groups-are-there-any-noticeable-trends-in-either-egg-group-1-or-egg-group-2" id="toc-q2.-how-are-kanto-region-pokémon-divided-among-egg-groups-are-there-any-noticeable-trends-in-either-egg-group-1-or-egg-group-2" class="nav-link" data-scroll-target="#q2.-how-are-kanto-region-pokémon-divided-among-egg-groups-are-there-any-noticeable-trends-in-either-egg-group-1-or-egg-group-2">Q2. How are Kanto region Pokémon divided among egg groups? Are there any noticeable trends in either egg group 1 or egg group 2?</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -135,14 +135,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(duckdb)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(showtext)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># load google font</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">font_add_google</span>(<span class="at">name =</span> <span class="st">"Saira"</span>, <span class="at">family =</span> <span class="st">"Saira"</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># turn on showtext</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">showtext_auto</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggimage)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(showtext)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># load google font</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">font_add_google</span>(<span class="at">name =</span> <span class="st">"Saira"</span>, <span class="at">family =</span> <span class="st">"Saira"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># turn on showtext</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">showtext_auto</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -164,8 +165,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="query-database" class="level2">
 <h2 class="anchored" data-anchor-id="query-database">Query Database</h2>
-<section id="q1.-how-are-the-kanto-region-pokémon-divided-among-growth-rates-and-which-pokémon-have-the-fastest-growth-rate" class="level3">
-<h3 class="anchored" data-anchor-id="q1.-how-are-the-kanto-region-pokémon-divided-among-growth-rates-and-which-pokémon-have-the-fastest-growth-rate">Q1. How are the Kanto region Pokémon divided among growth rates, and which Pokémon have the fastest growth rate?</h3>
+<section id="q1.-how-are-kanto-region-pokémon-divided-among-growth-rates-and-which-pokémon-have-the-fastest-growth-rate" class="level3">
+<h3 class="anchored" data-anchor-id="q1.-how-are-kanto-region-pokémon-divided-among-growth-rates-and-which-pokémon-have-the-fastest-growth-rate">Q1. How are Kanto region Pokémon divided among growth rates, and which Pokémon have the fastest growth rate?</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># query total number of pokemon for each growth rate</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>q1<span class="fl">.1</span>_query <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(kanto_database,</span>
@@ -254,13 +255,82 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                           <span class="at">columnDefs =</span> <span class="fu">list</span>(<span class="fu">list</span>(<span class="at">className =</span> <span class="st">'dt-center'</span>, <span class="at">targets =</span> <span class="st">"_all"</span>))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-1fb13141c64c93251263" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-1fb13141c64c93251263">{"x":{"filter":"none","vertical":false,"caption":"<caption>Pokémon with Fast Growth Rates Ranked by Total Base Stats<\/caption>","data":[["1","2","3","4","5"],["0036","0113","0040","0035","0039"],["Clefable","Chansey","Wigglytuff","Clefairy","Jigglypuff"],["Normal","Normal","Normal","Normal","Normal"],[95,250,140,70,115],[70,5,70,45,45],[73,5,45,48,20],[85,35,75,60,45],[90,105,50,65,25],[60,50,45,35,20],[473,450,425,323,270]],"container":"<table class=\"row-border\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>National No.<\/th>\n      <th>Pokémon<\/th>\n      <th>Type<\/th>\n      <th>HP<\/th>\n      <th>Attack<\/th>\n      <th>Defense<\/th>\n      <th>Sp. Atk<\/th>\n      <th>Sp. Def<\/th>\n      <th>Speed<\/th>\n      <th>Total<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","ordering":false,"columnDefs":[{"className":"dt-center","targets":"_all"},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"national_no","targets":1},{"name":"pokemon","targets":2},{"name":"type_1","targets":3},{"name":"hp","targets":4},{"name":"attack","targets":5},{"name":"defense","targets":6},{"name":"sp_atk","targets":7},{"name":"sp_def","targets":8},{"name":"speed","targets":9},{"name":"total","targets":10}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-51a2e7454130c1ea0cd0" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-51a2e7454130c1ea0cd0">{"x":{"filter":"none","vertical":false,"caption":"<caption>Pokémon with Fast Growth Rates Ranked by Total Base Stats<\/caption>","data":[["1","2","3","4","5"],["0036","0113","0040","0035","0039"],["Clefable","Chansey","Wigglytuff","Clefairy","Jigglypuff"],["Normal","Normal","Normal","Normal","Normal"],[95,250,140,70,115],[70,5,70,45,45],[73,5,45,48,20],[85,35,75,60,45],[90,105,50,65,25],[60,50,45,35,20],[473,450,425,323,270]],"container":"<table class=\"row-border\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>National No.<\/th>\n      <th>Pokémon<\/th>\n      <th>Type<\/th>\n      <th>HP<\/th>\n      <th>Attack<\/th>\n      <th>Defense<\/th>\n      <th>Sp. Atk<\/th>\n      <th>Sp. Def<\/th>\n      <th>Speed<\/th>\n      <th>Total<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","ordering":false,"columnDefs":[{"className":"dt-center","targets":"_all"},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"national_no","targets":1},{"name":"pokemon","targets":2},{"name":"type_1","targets":3},{"name":"hp","targets":4},{"name":"attack","targets":5},{"name":"defense","targets":6},{"name":"sp_atk","targets":7},{"name":"sp_def","targets":8},{"name":"speed","targets":9},{"name":"total","targets":10}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
-<section id="q2." class="level3">
-<h3 class="anchored" data-anchor-id="q2.">Q2.</h3>
+<section id="q2.-how-are-kanto-region-pokémon-divided-among-egg-groups-are-there-any-noticeable-trends-in-either-egg-group-1-or-egg-group-2" class="level3">
+<h3 class="anchored" data-anchor-id="q2.-how-are-kanto-region-pokémon-divided-among-egg-groups-are-there-any-noticeable-trends-in-either-egg-group-1-or-egg-group-2">Q2. How are Kanto region Pokémon divided among egg groups? Are there any noticeable trends in either egg group 1 or egg group 2?</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># query total number of pokemon for each egg group (1 and 2)</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>q2_query <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(kanto_database,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"SELECT egg_group_id, egg_group, egg_1_total, egg_2_total</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="st">                       FROM egg_groups</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="st">                       LEFT JOIN (SELECT egg_group_1, count(*) AS egg_1_total</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="st">                                  FROM egg_info</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="st">                                  GROUP BY egg_group_1) AS table_1</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="st">                          ON egg_groups.egg_group_id = table_1.egg_group_1</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="st">                       LEFT JOIN (SELECT egg_group_2, count(*) AS egg_2_total</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="st">                                  FROM egg_info</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="st">                                  GROUP BY egg_group_2) AS table_2</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="st">                          ON egg_groups.egg_group_id = table_2.egg_group_2</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="st">                       ORDER BY egg_group_id ASC;"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pokeball image file path</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>pokeball <span class="ot">&lt;-</span> <span class="st">"images/pokeball.webp"</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># desert box background image file path</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>desert <span class="ot">&lt;-</span> <span class="st">"images/box_desert.png"</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># lollipop plot</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>q2_plot <span class="ot">&lt;-</span> q2_query <span class="sc">%&gt;%</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(egg_group, egg_1_total), <span class="at">xend =</span> <span class="fu">reorder</span>(egg_group, egg_1_total), <span class="at">y =</span> <span class="dv">0</span>, <span class="at">yend =</span> <span class="sc">-</span>egg_1_total),</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#886934"</span>, <span class="at">lineend =</span> <span class="st">"round"</span>) <span class="sc">+</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(egg_group, egg_1_total), <span class="at">xend =</span> <span class="fu">reorder</span>(egg_group, egg_1_total), <span class="at">y =</span> <span class="dv">0</span>, <span class="at">yend =</span> egg_2_total), </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#886934"</span>, <span class="at">lineend =</span> <span class="st">"round"</span>) <span class="sc">+</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(<span class="fu">reorder</span>(egg_group, egg_1_total)) <span class="sc">+</span> <span class="fl">0.2</span>, </span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>                   <span class="at">xend =</span> <span class="fu">as.numeric</span>(<span class="fu">reorder</span>(egg_group, egg_1_total)) <span class="sc">+</span> <span class="fl">0.2</span>, </span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> <span class="fl">0.5</span>, <span class="at">yend =</span> egg_2_total <span class="sc">-</span> <span class="fl">0.5</span>),</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#886934"</span>, <span class="at">lineend =</span> <span class="st">"round"</span>) <span class="sc">+</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(<span class="fu">reorder</span>(egg_group, egg_1_total)) <span class="sc">+</span> <span class="fl">0.2</span>, </span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>                   <span class="at">xend =</span> <span class="fu">as.numeric</span>(<span class="fu">reorder</span>(egg_group, egg_1_total)) <span class="sc">+</span> <span class="fl">0.2</span>, </span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">yend =</span> <span class="sc">-</span>egg_1_total <span class="sc">-</span> <span class="fl">0.5</span>),</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#886934"</span>, <span class="at">lineend =</span> <span class="st">"round"</span>) <span class="sc">+</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> .<span class="dv">5</span>, <span class="at">xend =</span> <span class="fl">15.5</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">yend =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"#886934"</span>) <span class="sc">+</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_image</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(egg_group, egg_1_total), <span class="at">y =</span> <span class="sc">-</span>egg_1_total, <span class="at">image =</span> pokeball), <span class="at">size =</span> <span class="fl">0.04</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_image</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(egg_group, egg_1_total), <span class="at">y =</span> egg_2_total, <span class="at">image =</span> pokeball), <span class="at">size =</span> <span class="fl">0.04</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(egg_group, egg_1_total), <span class="at">y =</span> <span class="sc">-</span>egg_1_total, <span class="at">label =</span> egg_1_total), <span class="at">nudge_y =</span> <span class="sc">-</span><span class="dv">2</span>, <span class="at">family =</span> <span class="st">"Saira"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(egg_group, egg_1_total), <span class="at">y =</span> egg_2_total, <span class="at">label =</span> egg_2_total), <span class="at">nudge_y =</span> <span class="dv">2</span>, <span class="at">family =</span> <span class="st">"Saira"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">28</span>, <span class="dv">28</span>), <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="fl">0.02</span>, <span class="fl">0.02</span>))) <span class="sc">+</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">position =</span> <span class="st">"top"</span>, <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="fl">0.08</span>, <span class="fl">0.18</span>))) <span class="sc">+</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(egg_group, egg_1_total), <span class="at">y =</span> <span class="dv">22</span>, <span class="at">label =</span> egg_group), <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">"Saira"</span>) <span class="sc">+</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Kanto Pokémon Egg Group Distribution"</span>,</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Egg Group 1 vs. Egg Group 2"</span>) <span class="sc">+</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.line =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">family =</span> <span class="st">"Saira"</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.2</span>),</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">family =</span> <span class="st">"Saira"</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.2</span>))</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a><span class="co"># apply desert box background image to the plot</span></span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a><span class="fu">ggbackground</span>(q2_plot, desert)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="query_database_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 </section>
 

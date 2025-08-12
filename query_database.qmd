@@ -13,6 +13,7 @@ toc: true
 library(DT)
 library(DBI)
 library(duckdb)
+library(ggimage)
 library(showtext)
 library(tidyverse)
 
@@ -35,7 +36,7 @@ dbListTables(kanto_database)
 
 ## Query Database
 
-### Q1. How are the Kanto region Pokémon divided among growth rates, and which Pokémon have the fastest growth rate?
+### Q1. How are Kanto region Pokémon divided among growth rates, and which Pokémon have the fastest growth rate?
 ```{r}
 # query total number of pokemon for each growth rate
 q1.1_query <- dbGetQuery(kanto_database,
@@ -117,4 +118,67 @@ q1.2_query %>%
                            columnDefs = list(list(className = 'dt-center', targets = "_all"))))
 ```
 
-### Q2. 
+### Q2. How are Kanto region Pokémon divided among egg groups? Are there any noticeable trends in either egg group 1 or egg group 2?
+```{r}
+# query total number of pokemon for each egg group (1 and 2)
+q2_query <- dbGetQuery(kanto_database,
+                       "SELECT egg_group_id, egg_group, egg_1_total, egg_2_total
+                       FROM egg_groups
+                       LEFT JOIN (SELECT egg_group_1, count(*) AS egg_1_total
+                                  FROM egg_info
+                                  GROUP BY egg_group_1) AS table_1
+                          ON egg_groups.egg_group_id = table_1.egg_group_1
+                       LEFT JOIN (SELECT egg_group_2, count(*) AS egg_2_total
+                                  FROM egg_info
+                                  GROUP BY egg_group_2) AS table_2
+                          ON egg_groups.egg_group_id = table_2.egg_group_2
+                       ORDER BY egg_group_id ASC;")
+```
+
+```{r, warning=FALSE}
+#| code-fold: true
+# pokeball image file path
+pokeball <- "images/pokeball.webp"
+
+# desert box background image file path
+desert <- "images/box_desert.png"
+
+# lollipop plot
+q2_plot <- q2_query %>%
+  ggplot() +
+  geom_segment(aes(x = reorder(egg_group, egg_1_total), xend = reorder(egg_group, egg_1_total), y = 0, yend = -egg_1_total),
+               linewidth = 1, linetype = "dotted", na.rm = TRUE, color = "#886934", lineend = "round") +
+  geom_segment(aes(x = reorder(egg_group, egg_1_total), xend = reorder(egg_group, egg_1_total), y = 0, yend = egg_2_total), 
+               linewidth = 1, linetype = "dotted", na.rm = TRUE, color = "#886934", lineend = "round") +
+  geom_segment(aes(x = as.numeric(reorder(egg_group, egg_1_total)) + 0.2, 
+                   xend = as.numeric(reorder(egg_group, egg_1_total)) + 0.2, 
+                   y = 0.5, yend = egg_2_total - 0.5),
+               linewidth = 1, linetype = "dotted", na.rm = TRUE, color = "#886934", lineend = "round") +
+  geom_segment(aes(x = as.numeric(reorder(egg_group, egg_1_total)) + 0.2, 
+                   xend = as.numeric(reorder(egg_group, egg_1_total)) + 0.2, 
+                   y = -0.5, yend = -egg_1_total - 0.5),
+               linewidth = 1, linetype = "dotted", na.rm = TRUE, color = "#886934", lineend = "round") +
+  geom_segment(x = .5, xend = 15.5, y = 0, yend = 0, color = "#886934") +
+  geom_image(aes(x = reorder(egg_group, egg_1_total), y = -egg_1_total, image = pokeball), size = 0.04, na.rm = TRUE) +
+  geom_image(aes(x = reorder(egg_group, egg_1_total), y = egg_2_total, image = pokeball), size = 0.04, na.rm = TRUE) +
+  geom_text(aes(x = reorder(egg_group, egg_1_total), y = -egg_1_total, label = egg_1_total), nudge_y = -2, family = "Saira", na.rm = TRUE) +
+  geom_text(aes(x = reorder(egg_group, egg_1_total), y = egg_2_total, label = egg_2_total), nudge_y = 2, family = "Saira", na.rm = TRUE) +
+  scale_y_continuous(limits = c(-28, 28), expand = expansion(mult = c(0.02, 0.02))) +
+  scale_x_discrete(position = "top", expand = expansion(mult = c(0.08, 0.18))) +
+  geom_text(aes(x = reorder(egg_group, egg_1_total), y = 22, label = egg_group), inherit.aes = FALSE, hjust = 0.5, size = 4, family = "Saira") +
+  labs(title = "Kanto Pokémon Egg Group Distribution",
+       subtitle = "Egg Group 1 vs. Egg Group 2") +
+  coord_flip() +
+  theme_classic() +
+  theme(axis.ticks = element_blank(),
+        axis.line = element_blank(),
+        axis.text = element_blank(),
+        axis.title = element_blank(),
+        plot.title = element_text(size = 18, face = "bold", family = "Saira", hjust = 0.5, vjust = -0.2),
+        plot.subtitle = element_text(size = 14, family = "Saira", hjust = 0.5, vjust = -0.2))
+
+# apply desert box background image to the plot
+ggbackground(q2_plot, desert)
+```
+
+
