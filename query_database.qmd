@@ -1,0 +1,120 @@
+---
+title: "Query Database"
+author: "Matteo Torres"
+format: html
+editor_options: 
+  chunk_output_type: console
+toc: true
+---
+
+## Load Packages
+```{r, message=FALSE}
+#| code-fold: true
+library(DT)
+library(DBI)
+library(duckdb)
+library(showtext)
+library(tidyverse)
+
+# load google font
+font_add_google(name = "Saira", family = "Saira")
+
+# turn on showtext
+showtext_auto()
+```
+
+## Connect to Database
+```{r}
+kanto_database <- dbConnect(duckdb(), dbdir = "kanto_database.duckdb")
+```
+
+```{r}
+# list all tables from database
+dbListTables(kanto_database)
+```
+
+## Query Database
+
+### Q1. How are the Kanto region Pokémon divided among growth rates, and which Pokémon have the fastest growth rate?
+```{r}
+# query total number of pokemon for each growth rate
+q1.1_query <- dbGetQuery(kanto_database,
+                         "SELECT growth_rate, COUNT(*) AS total
+                         FROM training_breeding_stats
+                         LEFT JOIN growth_rate
+                            ON training_breeding_stats.growth_rate_id = growth_rate.growth_rate_id
+                         GROUP BY growth_rate
+                         ORDER BY total DESC;")
+```
+
+```{r}
+#| code-fold: true
+# pokeball palette
+palette <- c("#bc1c0c", "#ee4035", "#ffffff", "#a09f9d")
+
+# donut plot (pokeball)
+q1.1_query %>%
+  mutate(percent = total/sum(total),
+         ymax = cumsum(percent),
+         ymin = c(0, head(ymax, n = -1)),
+         position = (ymax + ymin)/2,
+         label = total) %>%
+  ggplot(aes(ymax = ymax,
+             ymin = ymin, 
+             xmax = 4, 
+             xmin = 2.5, 
+             fill = growth_rate)) +
+  geom_rect(color = "black", linewidth = 1) +
+  coord_polar(theta = "y", start = -pi/2) +
+  xlim(c(2, 4)) +
+  geom_text(x = 3.3, aes(y = position, label = label, color = growth_rate), 
+            size = 5, 
+            color = "black", 
+            family = "Saira") +
+  geom_text(x = 2, y = 2, label = 151, size = 5, family = "Saira") +
+  geom_point(aes(x = 2, y = 1), shape = 21, size = 15, stroke = 1.5, color = "black", fill = NA) +
+  labs(title = "Pokémon Growth Rates in the Kanto Region",
+       subtitle = "Distribution of common growth rate types in Generation I",
+       fill = "Growth Rate") +
+  scale_fill_manual(values = palette) +
+  theme_void() +
+  theme(legend.position = "bottom",
+        legend.title.position = "top",
+        legend.text.position = "bottom",
+        legend.key.width = unit(3, "cm"),
+        legend.key.height = unit(1, "cm"),
+        legend.title = element_text(size = 14, hjust = 0.5, family = "Saira"),
+        legend.text = element_text(size = 12, family = "Saira"),
+        plot.title = element_text(size = 18, hjust = 0.5, face = "bold", family = "Saira"),
+        plot.subtitle = element_text(size = 14, hjust = 0.5, family = "Saira"))
+```
+
+```{r}
+# query pokemon with a fast growth rate descending by total base stats
+q1.2_query <- dbGetQuery(kanto_database,
+                         "SELECT training_breeding_stats.national_no, training_breeding_stats.pokemon,
+                                 type_1, hp, attack, defense, sp_atk, sp_def, speed, total
+                         FROM training_breeding_stats
+                         LEFT JOIN growth_rate
+                            ON training_breeding_stats.growth_rate_id = growth_rate.growth_rate_id
+                         LEFT JOIN base_stats
+                            ON training_breeding_stats.national_no = base_stats.national_no
+                         WHERE growth_rate.growth_rate LIKE '%Fast%'
+                         ORDER BY total DESC;")
+```
+
+```{r}
+#| code-fold: true
+# data table 
+q1.2_query %>%
+  datatable(colnames = c("National No.", "Pokémon", "Type",
+                         "HP", "Attack", "Defense", "Sp. Atk",
+                         "Sp. Def", "Speed", "Total"),
+            class = "row-border",
+            caption = "Pokémon with Fast Growth Rates Ranked by Total Base Stats",
+            options = list(dom = "t", 
+                           ordering = FALSE,
+                           columnDefs = list(list(className = 'dt-center', targets = "_all"))))
+```
+
+### Q2. 
