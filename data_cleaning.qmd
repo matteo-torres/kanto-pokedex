@@ -1,7 +1,9 @@
 ---
 title: "Data Cleaning"
 author: "Matteo Torres"
-format: html
+format: 
+    html:
+        embed-resources: true
 editor_options: 
   chunk_output_type: console
 ---
@@ -143,4 +145,3 @@ write_csv(growth_rate, "data/processed/growth_rate.csv")
 write_csv(measurements, "data/processed/measurements.csv")
 write_csv(training_breeding_stats, "data/processed/training_breeding_stats.csv")
 ```
-
