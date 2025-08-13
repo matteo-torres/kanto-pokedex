@@ -46,3 +46,4 @@ pokeAPI. (2025). *pokemon.csv* [Dataset]. In *pokeapi* (Commit e091bbc). GitHub.
 pokeAPI. (2025). *pokemon_species.csv* [Data set]. In *pokeapi* (Commit e091bbc). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/pokemon_species.csv. Accessed July 29, 2025.
 
 ## Acknowledgments
+This project is inspired by the Pokédex, an electronic encyclopedia carried by Pokémon trainers that records data after Pokémon encounters. It is featured in the original anime and has since been adapted in the video games.
