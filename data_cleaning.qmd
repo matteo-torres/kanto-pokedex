@@ -1,9 +1,7 @@
 ---
 title: "Data Cleaning"
 author: "Matteo Torres"
-format: 
-    html:
-        embed-resources: true
+format: html
 editor_options: 
   chunk_output_type: console
 ---
