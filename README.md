@@ -33,4 +33,16 @@ kanto-pokedex
 ## References
 christopher-cao. (2016). *Kanto Pokemon Spreadsheet.csv* [Data set]. In *Pokemon-Simulator-in-Python* (Commit 80ee59e). GitHub. https://github.com/christopher-cao/Pokemon-Simulator-in-Python/blob/80ee59e/Kanto%20Pokemon%20Spreadsheet.csv. Accessed July 29, 2025.
 
+pokeAPI. (2014). *egg_groups.csv* [Data set]. In *pokeapi* (Commit 21a1d4b). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/egg_groups.csv. Accessed July 29, 2025.
+
+pokeAPI. (2022). *growth_rate_prose.csv* [Data set]. In *pokeapi* (Commit 48d8ab1). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/growth_rate_prose.csv. Accessed July 29, 2025.
+
+pokeAPI. (2024). *pokemon_egg_groups.csv* [Data set]. In *pokeapi* (Commit d7a7b5a). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/pokemon_egg_groups.csv. Accessed July 29, 2025.
+
+pokeAPI. (2024). *pokemon_species_names.csv* [Data set]. In *pokemon* (Commit 2518b3e). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/pokemon_species_names.csv. Accessed July 29, 2025.
+
+pokeAPI. (2025). *pokemon.csv* [Dataset]. In *pokeapi* (Commit e091bbc). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/pokemon.csv. Accessed July 29, 2025.
+
+pokeAPI. (2025). *pokemon_species.csv* [Data set]. In *pokeapi* (Commit e091bbc). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/pokemon_species.csv. Accessed July 29, 2025.
+
 ## Acknowledgments
