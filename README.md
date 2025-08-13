@@ -14,6 +14,19 @@ The purpose of this project is to build and query a relational database using R 
 - Data Visualization
 
 ## Repository Structure
+```bash
+kanto-pokedex
+├── README.md
+├── .gitignore
+├── data_cleaning.qmd/.html
+├── build_database.sql
+├── kanto_database.duckdb
+├── query_database.qmd/.html
+├── images
+└── data
+    ├── raw
+    └── processed
+```
 
 ## Data
 
