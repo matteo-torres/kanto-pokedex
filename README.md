@@ -1,7 +1,7 @@
 # Pokémon Kanto Region Pokédex
 
 <p align="center">
-  <img src="images/team_rocket.webp" alt="Jessie and James of Team Rocket" width="450" />
+  <img src="images/team_rocket.webp" alt="Jessie and James of Team Rocket" width="400" />
   <br>
   <em>Jessie and James of Team Rocket</em> 
 </p>
@@ -29,6 +29,7 @@ kanto-pokedex
 ```
 
 ## Data
+All datasets were obtained from existing GitHub repositories. The raw CSV files are stored in the `data/raw` subfolder. These files were cleaned in data_cleaning.qmd and saved to the `data/processed` subfolder. The processed CSV files were then used to build the relational database. The raw data, processed data, and database are all available for download in this repository.
 
 ## References
 christopher-cao. (2016). *Kanto Pokemon Spreadsheet.csv* [Data set]. In *Pokemon-Simulator-in-Python* (Commit 80ee59e). GitHub. https://github.com/christopher-cao/Pokemon-Simulator-in-Python/blob/80ee59e/Kanto%20Pokemon%20Spreadsheet.csv. Accessed July 29, 2025.
@@ -46,28 +47,10 @@ pokeAPI. (2025). *pokemon.csv* [Dataset]. In *pokeapi* (Commit e091bbc). GitHub.
 pokeAPI. (2025). *pokemon_species.csv* [Data set]. In *pokeapi* (Commit e091bbc). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/pokemon_species.csv. Accessed July 29, 2025.
 
 ## Acknowledgments
-This project is inspired by the Pokédex, an electronic encyclopedia carried by Pokémon trainers that records data after Pokémon encounters. It is featured in the original anime and has since been adapted in the video games.
+This project is inspired by the Pokédex, a high-tech, portable electronic encyclopedia carried by Pokémon trainers to record data after Pokémon encounters. The earliest design was modeled to match the shape and size of a book.
 
 <p align="center">
-  <img src="images/kanto_pokdex.png" alt="Kanto Pokédex" width="300" />
+  <img src="images/kanto_pokdex.png" alt="Kanto Pokédex" width="250" />
   <br>
   <em>Kanto Pokédex</em> 
 </p>
-
-<table>
-<tr>
-<td style="width:60%; vertical-align:top;">
-
-This project is inspired by the Pokédex, an electronic encyclopedia carried by Pokémon trainers that records data after Pokémon encounters. It is featured in the original anime and has since been adapted in the video games.
-
-</td>
-<td style="width:40%; text-align:center;">
-
-<img src="images/kanto_pokdex.png" alt="Kanto Pokédex" width="300" />
-<br>
-<em>Kanto Pokédex</em>
-
-</td>
-</tr>
-</table>
-
