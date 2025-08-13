@@ -29,6 +29,7 @@ kanto-pokedex
 ```
 
 ## Data
+All datasets were obtained from existing GitHub repositories. The raw CSV files are stored in the `data/raw` subfolder. These files were cleaned in data_cleaning.qmd and saved to the `data/processed` subfolder. The processed CSV files were then used to build the relational database. The raw data, processed data, and database are all available for download in this repository.
 
 ## References
 christopher-cao. (2016). *Kanto Pokemon Spreadsheet.csv* [Data set]. In *Pokemon-Simulator-in-Python* (Commit 80ee59e). GitHub. https://github.com/christopher-cao/Pokemon-Simulator-in-Python/blob/80ee59e/Kanto%20Pokemon%20Spreadsheet.csv. Accessed July 29, 2025.
