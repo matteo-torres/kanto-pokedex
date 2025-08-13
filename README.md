@@ -39,7 +39,7 @@ pokeAPI. (2022). *growth_rate_prose.csv* [Data set]. In *pokeapi* (Commit 48d8ab
 
 pokeAPI. (2024). *pokemon_egg_groups.csv* [Data set]. In *pokeapi* (Commit d7a7b5a). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/pokemon_egg_groups.csv. Accessed July 29, 2025.
 
-pokeAPI. (2024). *pokemon_species_names.csv* [Data set]. In *pokemon* (Commit 2518b3e). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/pokemon_species_names.csv. Accessed July 29, 2025.
+pokeAPI. (2024). *pokemon_species_names.csv* [Data set]. In *pokeapi* (Commit 2518b3e). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/pokemon_species_names.csv. Accessed July 29, 2025.
 
 pokeAPI. (2025). *pokemon.csv* [Dataset]. In *pokeapi* (Commit e091bbc). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/pokemon.csv. Accessed July 29, 2025.
 
