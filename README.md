@@ -31,5 +31,7 @@ kanto-pokedex
 ## Data
 
 ## References
+christopher-cao. (2016). *Kanto Pokemon Spreadsheet.csv* [Data set]. In *Pokemon-Simulator-in-Python* (Commit 80ee59e). GitHub. https://github.com/christopher-cao/Pokemon-Simulator-in-Python/blob/master/Kanto%20Pokemon%20Spreadsheet.csv (Accessed August 12, 2025)
+
 
 ## Acknowledgments
