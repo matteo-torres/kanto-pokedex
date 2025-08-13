@@ -47,3 +47,9 @@ pokeAPI. (2025). *pokemon_species.csv* [Data set]. In *pokeapi* (Commit e091bbc)
 
 ## Acknowledgments
 This project is inspired by the Pokédex, an electronic encyclopedia carried by Pokémon trainers that records data after Pokémon encounters. It is featured in the original anime and has since been adapted in the video games.
+
+<p align="center">
+  <img src="images/kanto_pokdex.png" alt="Kanto Pokédex" width="300" />
+  <br>
+  <em>Kanto Pokédex</em> 
+</p>
