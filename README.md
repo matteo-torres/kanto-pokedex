@@ -46,46 +46,10 @@ pokeAPI. (2025). *pokemon.csv* [Dataset]. In *pokeapi* (Commit e091bbc). GitHub.
 pokeAPI. (2025). *pokemon_species.csv* [Data set]. In *pokeapi* (Commit e091bbc). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/pokemon_species.csv. Accessed July 29, 2025.
 
 ## Acknowledgments
-This project is inspired by the Pokédex, an electronic encyclopedia carried by Pokémon trainers that records data after Pokémon encounters. It is featured in the original anime and has since been adapted in the video games.
+This project is inspired by the Pokédex, an electronic encyclopedia carried by Pokémon trainers that records data after Pokémon encounters.
 
 <p align="center">
-  <img src="images/kanto_pokdex.png" alt="Kanto Pokédex" width="300" />
+  <img src="images/kanto_pokdex.png" alt="Kanto Pokédex" width="200" />
   <br>
   <em>Kanto Pokédex</em> 
 </p>
-
-<table>
-<tr>
-<td style="width:60%; vertical-align:top;">
-
-This project is inspired by the Pokédex, an electronic encyclopedia carried by Pokémon trainers that records data after Pokémon encounters. It is featured in the original anime and has since been adapted in the video games.
-
-</td>
-<td style="width:40%; text-align:center;">
-
-<img src="images/kanto_pokdex.png" alt="Kanto Pokédex" width="300" />
-<br>
-<em>Kanto Pokédex</em>
-
-<div style="display: flex; align-items: center;">
-
-<div style="flex: 1; padding-right: 20px;">
-
-This project is inspired by the Pokédex, an electronic encyclopedia carried by Pokémon trainers that records data after Pokémon encounters. It is featured in the original anime and has since been adapted in the video games.
-
-</div>
-
-<div style="flex: 1; text-align: center;">
-
-<img src="images/kanto_pokdex.png" alt="Kanto Pokédex" width="300" />
-<br>
-<em>Kanto Pokédex</em>
-
-</div>
-
-</div>
-
-</td>
-</tr>
-</table>
-
