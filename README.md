@@ -67,6 +67,24 @@ This project is inspired by the Pokédex, an electronic encyclopedia carried by 
 <br>
 <em>Kanto Pokédex</em>
 
+<div style="display: flex; align-items: center;">
+
+<div style="flex: 1; padding-right: 20px;">
+
+This project is inspired by the Pokédex, an electronic encyclopedia carried by Pokémon trainers that records data after Pokémon encounters. It is featured in the original anime and has since been adapted in the video games.
+
+</div>
+
+<div style="flex: 1; text-align: center;">
+
+<img src="images/kanto_pokdex.png" alt="Kanto Pokédex" width="300" />
+<br>
+<em>Kanto Pokédex</em>
+
+</div>
+
+</div>
+
 </td>
 </tr>
 </table>
