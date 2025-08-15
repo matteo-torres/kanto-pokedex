@@ -22,10 +22,12 @@ kanto-pokedex
 ├── build_database.sql
 ├── kanto_database.duckdb
 ├── query_database.qmd/.html
-├── images
-└── data
+├── data
     ├── raw
     └── processed
+└── images
+    ├── assets
+    └── plots
 ```
 
 ## Data
