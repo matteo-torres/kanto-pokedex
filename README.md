@@ -34,19 +34,19 @@ kanto-pokedex
 All datasets were obtained from existing GitHub repositories. The raw CSV files are stored in the `data/raw` subfolder. These files were cleaned in *data_cleaning.qmd* and saved to the `data/processed` subfolder. The processed CSV files were then used to build the relational database. The raw data, processed data, and database are all available for download in this repository.
 
 ## References
-christopher-cao. (2016). *Kanto Pokemon Spreadsheet.csv* [Data set]. In *Pokemon-Simulator-in-Python* (Commit 80ee59e). GitHub. https://github.com/christopher-cao/Pokemon-Simulator-in-Python/blob/80ee59e/Kanto%20Pokemon%20Spreadsheet.csv. Accessed July 29, 2025.
+christopher-cao. (2016). *Kanto Pokemon Spreadsheet.csv* [Dataset]. In *Pokemon-Simulator-in-Python* (Commit 80ee59e). GitHub. https://github.com/christopher-cao/Pokemon-Simulator-in-Python/blob/80ee59e/Kanto%20Pokemon%20Spreadsheet.csv. Accessed July 29, 2025.
 
-pokeAPI. (2014). *egg_groups.csv* [Data set]. In *pokeapi* (Commit 21a1d4b). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/egg_groups.csv. Accessed July 29, 2025.
+pokeAPI. (2014). *egg_groups.csv* [Dataset]. In *pokeapi* (Commit 21a1d4b). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/egg_groups.csv. Accessed July 29, 2025.
 
-pokeAPI. (2022). *growth_rate_prose.csv* [Data set]. In *pokeapi* (Commit 48d8ab1). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/growth_rate_prose.csv. Accessed July 29, 2025.
+pokeAPI. (2022). *growth_rate_prose.csv* [Dataset]. In *pokeapi* (Commit 48d8ab1). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/growth_rate_prose.csv. Accessed July 29, 2025.
 
-pokeAPI. (2024). *pokemon_egg_groups.csv* [Data set]. In *pokeapi* (Commit d7a7b5a). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/pokemon_egg_groups.csv. Accessed July 29, 2025.
+pokeAPI. (2024). *pokemon_egg_groups.csv* [Dataset]. In *pokeapi* (Commit d7a7b5a). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/pokemon_egg_groups.csv. Accessed July 29, 2025.
 
-pokeAPI. (2024). *pokemon_species_names.csv* [Data set]. In *pokeapi* (Commit 2518b3e). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/pokemon_species_names.csv. Accessed July 29, 2025.
+pokeAPI. (2024). *pokemon_species_names.csv* [Dataset]. In *pokeapi* (Commit 2518b3e). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/pokemon_species_names.csv. Accessed July 29, 2025.
 
 pokeAPI. (2025). *pokemon.csv* [Dataset]. In *pokeapi* (Commit e091bbc). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/pokemon.csv. Accessed July 29, 2025.
 
-pokeAPI. (2025). *pokemon_species.csv* [Data set]. In *pokeapi* (Commit e091bbc). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/pokemon_species.csv. Accessed July 29, 2025.
+pokeAPI. (2025). *pokemon_species.csv* [Dataset]. In *pokeapi* (Commit e091bbc). GitHub. https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/pokemon_species.csv. Accessed July 29, 2025.
 
 ## Acknowledgments
 This project is inspired by the Pokédex, a high-tech, portable electronic encyclopedia carried by Pokémon trainers to record data after Pokémon encounters. The earliest design was modeled to match the shape and size of a book.
