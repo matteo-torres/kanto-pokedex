@@ -23,8 +23,8 @@ kanto-pokedex
 ├── kanto_database.duckdb
 ├── query_database.qmd/.html
 ├── data
-    ├── raw
-    └── processed
+│   ├── raw
+│   └── processed
 └── images
     ├── assets
     └── plots
