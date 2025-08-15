@@ -53,3 +53,6 @@ rsconnect/
 
 # Ignore .Rproj files
 *.Rproj
+
+# Ignore libs directory
+*libs/
