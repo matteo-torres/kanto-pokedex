@@ -1,7 +1,7 @@
 # Pokémon Kanto Region Pokédex
 
 <p align="center">
-  <img src="images/team_rocket.webp" alt="Jessie and James of Team Rocket" width="400" />
+  <img src="images/assets/team_rocket.webp" alt="Jessie and James of Team Rocket" width="400" />
   <br>
   <em>Jessie and James of Team Rocket</em> 
 </p>
@@ -50,7 +50,7 @@ pokeAPI. (2025). *pokemon_species.csv* [Data set]. In *pokeapi* (Commit e091bbc)
 This project is inspired by the Pokédex, a high-tech, portable electronic encyclopedia carried by Pokémon trainers to record data after Pokémon encounters. The earliest design was modeled to match the shape and size of a book.
 
 <p align="center">
-  <img src="images/kanto_pokdex.png" alt="Kanto Pokédex" width="250" />
+  <img src="images/assets/kanto_pokdex.png" alt="Kanto Pokédex" width="250" />
   <br>
   <em>Kanto Pokédex</em> 
 </p>
