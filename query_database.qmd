@@ -93,12 +93,14 @@ p1
 # query only pokémon with a fast growth rate in descending order by total base stats
 q1.2_query <- dbGetQuery(kanto_database,
                          "SELECT training_breeding_stats.national_no, training_breeding_stats.pokemon,
-                                 type_1, hp, attack, defense, sp_atk, sp_def, speed, total
+                                 type_1, species, hp, attack, defense, sp_atk, sp_def, speed, total
                          FROM training_breeding_stats
                          LEFT JOIN growth_rate
                             ON training_breeding_stats.growth_rate_id = growth_rate.growth_rate_id
                          LEFT JOIN base_stats
                             ON training_breeding_stats.national_no = base_stats.national_no
+                         LEFT JOIN species
+                            ON training_breeding_stats.national_no = species.national_no
                          WHERE growth_rate.growth_rate LIKE '%Fast%'
                          ORDER BY total DESC;")
 ```
@@ -108,8 +110,8 @@ q1.2_query <- dbGetQuery(kanto_database,
 # fast growth rate data table
 q1.2_query %>%
   datatable(colnames = c("National No.", "Pokémon", "Type",
-                         "HP", "Attack", "Defense", "Sp. Atk",
-                         "Sp. Def", "Speed", "Total"),
+                         "Species", "HP", "Attack", "Defense",
+                         "Sp. Atk", "Sp. Def", "Speed", "Total"),
             class = "row-border",
             caption = "Pokémon with Fast Growth Rates Ranked by Total Base Stats",
             options = list(dom = "t", 
