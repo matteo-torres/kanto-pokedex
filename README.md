@@ -7,11 +7,11 @@
 </p>
 
 ## About
-The purpose of this project is to build and query a relational database using R and Structured Query Language (SQL) sourced from various Pokémon datasets. This project focuses on the first generation of Pokémon from the Kanto region and includes information on all 151 different Pokémon, similar to a Pokédex. The information covers aspects such as name, National Pokédex number, type, species, size, base stats, training information, and breeding details.
+The purpose of this project is to build a relational database from multiple datasets and use SQL queries in R and Python to create visualizations. Focusing on the first generation of Pokémon from the Kanto region, the database includes information on all 151 Pokémon, similar to a Pokédex. The data covers attributes such as name, National Pokédex number, type, species, size, base stats, training information, and breeding details.
 
-- Data Wrangling and Processing
-- Building a Structured Query Language (SQL) Relational Database
-- Data Visualization
+- Data Wrangling and Processing (R)
+- Building a Relational Database (SQL)
+- Querying and Data Visualization (R and Python)
 
 ## Repository Structure
 ```bash
@@ -22,6 +22,7 @@ kanto-pokedex
 ├── build_database.sql
 ├── kanto_database.duckdb
 ├── query_database.qmd/.html
+├── query_database.ipynb
 ├── data
 │   ├── raw
 │   └── processed
@@ -32,6 +33,25 @@ kanto-pokedex
 
 ## Data
 All datasets were obtained from existing GitHub repositories. The raw CSV files are stored in the `data/raw` subfolder. These files were cleaned in *data_cleaning.qmd* and saved to the `data/processed` subfolder. The processed CSV files were then used to build the relational database. The raw data, processed data, and database are all available for download in this repository.
+
+To connect to the database in R
+```{r}
+# load packages
+library(DBI)
+library(duckdb)
+
+# connect to kanto database
+kanto_database <- dbConnect(duckdb(), dbdir = "kanto_database.duckdb")
+```
+
+To connect to the database in Python
+```{python}
+# import libraries
+import duckdb
+
+# connect to kanto database
+kanto_database = duckdb.connect(database = "kanto_database.duckdb")
+```
 
 ## References
 christopher-cao. (2016). *Kanto Pokemon Spreadsheet.csv* [Dataset]. In *Pokemon-Simulator-in-Python* (Commit 80ee59e). GitHub. https://github.com/christopher-cao/Pokemon-Simulator-in-Python/blob/80ee59e/Kanto%20Pokemon%20Spreadsheet.csv. Accessed July 29, 2025.
