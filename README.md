@@ -7,7 +7,7 @@
 </p>
 
 ## About
-The purpose of this project is to build a relational database from multiple datasets and use SQL queries in R and Python to create visualizations. Focusing on the first generation of Pokémon from the Kanto region, the database includes information on all 151 Pokémon, similar to a Pokédex. The data covers attributes such as name, National Pokédex number, type, species, size, base stats, training information, and breeding details.
+The purpose of this project is to build a relational database and use SQL queries in R and Python to create visualizations. Focusing on the first generation of Pokémon from the Kanto region, the database includes information on all 151 Pokémon, similar to a Pokédex. The data covers attributes such as name, National Pokédex number, type, species, size, base stats, training information, and breeding details.
 
 - Data Wrangling and Processing (R)
 - Building a Relational Database (SQL)
